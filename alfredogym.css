@@ -1,0 +1,817 @@
+/* --- Reset e Stili Globali --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333; /* Colore testo default su sfondo chiaro */
+    background-color: #fff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3rem; font-weight: 900; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.4rem; }
+p { margin-bottom: 1rem; }
+a { color: #FFBF00; /* Giallo Accento Modificato Leggermente */ text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* --- Colori e Variabili (Esempio) --- */
+:root {
+    --color-primary: #FFBF00; /* Giallo Accento Modificato */
+    --color-secondary: #FFD700; /* Giallo più chiaro per hover/dettagli */
+    --color-dark: #1a1a1a;
+    --color-dark-gray: #333333;
+    --color-light-gray: #f8f8f8;
+    --color-white: #ffffff;
+    --header-height: 70px;
+}
+
+/* --- Placeholder Stili --- */
+.image-placeholder, .icon-placeholder {
+    background-color: #e0e0e0; /* Grigio più chiaro per placeholder */
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-style: italic;
+    font-size: 0.9rem;
+    border: 1px dashed #ccc;
+    width: 100%;
+    height: 100%;
+    min-height: 150px; /* Altezza minima per visibilità */
+    overflow: hidden; /* Nasconde testo lungo */
+}
+.icon-placeholder {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    min-height: 50px;
+    margin: 0 auto 1rem auto; /* Centra l'icona */
+    background-color: #ccc; /* Sfondo per icon placeholder */
+    border: none;
+}
+.card-image-placeholder {
+    height: 200px;
+    min-height: 200px;
+}
+.tall-placeholder {
+    min-height: 400px;
+}
+.wide-placeholder {
+    min-height: 250px;
+    margin-top: 2rem;
+}
+.contact-image-placeholder {
+    height: 250px;
+    min-height: 250px;
+}
+
+/* --- Header --- */
+.v-header {
+    background-color: var(--color-white);
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.v-header-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--color-dark);
+    display: flex;
+vertical-align: middle;
+    
+}
+.vvv{
+    margin: 16px;
+}
+
+.v-header-nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.v-header-nav a {
+    color: var(--color-dark-gray);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.v-header-nav a:hover,
+.v-header-nav a.active { /* Aggiungere classe active con JS se serve */
+    color: var(--color-primary);
+}
+
+.v-mobile-menu-toggle {
+    display: none; /* Nascondi su desktop */
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-dark);
+}
+
+/* --- Sezioni Generali --- */
+.v-section {
+    padding: 4rem 2rem; /* Spaziatura verticale e orizzontale */
+}
+.v-section-dark {
+    background-color: var(--color-dark);
+    color: var(--color-light-gray);
+}
+.v-section-dark h1, .v-section-dark h2, .v-section-dark h3 {
+    color: var(--color-white);
+}
+.v-section-dark a {
+    color: var(--color-primary);
+}
+.v-section-light {
+    background-color: var(--color-white);
+    color: var(--color-dark-gray);
+}
+.v-section-light-gray {
+    background-color: var(--color-light-gray);
+}
+.v-section-accent {
+     background-color: var(--color-primary);
+     color: var(--color-dark);
+}
+.v-section-accent h2, .v-section-accent h3 {
+    color: var(--color-dark);
+}
+.v-section-accent .v-card-link {
+    color: var(--color-dark);
+    font-weight: 700;
+}
+
+.v-section-title, .v-section-title-center {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- Bottoni --- */
+.v-button {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 1px;
+}
+.v-button:hover {
+    transform: translateY(-2px); /* Leggero effetto al passaggio */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.v-button-primary {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+}
+.v-button-primary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    text-decoration: none;
+}
+.v-button-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+.v-section-dark .v-button-secondary {
+     color: var(--color-white);
+     border-color: var(--color-white);
+}
+.v-button-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+     border-color: var(--color-primary);
+    text-decoration: none;
+}
+.v-section-dark .v-button-secondary:hover {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    border-color: var(--color-white);
+}
+.v-button-dark { /* Per form su sfondo chiaro */
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+.v-button-dark:hover {
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+}
+
+
+/* --- Sezione Hero --- */
+.v-section-hero {
+    position: relative;
+    height: calc(100vh - var(--header-height));
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-white);
+    padding: 0; /* Sovrascrive padding sezione */
+    overflow: hidden;
+}
+
+.v-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Dietro overlay e contenuto */
+}
+.v-hero-background .image-placeholder { /* Assicura che copra */
+    min-height: 100%;
+    object-fit: cover; /* Per immagini reali */
+    border: none; /* No bordo per sfondo */
+}
+.v-hero-background::after { /* Overlay scuro */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Scurisce lo sfondo */
+    z-index: -1; /* Sopra lo sfondo, sotto il contenuto */
+}
+
+.v-hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.v-hero-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.v-hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: #eee;
+}
+
+/* --- Sezione 3 Card --- */
+.v-section-cards-light {
+    background-color: var(--color-white);
+}
+.v-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.v-card {
+    background-color: var(--color-light-gray);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.v-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+.v-card-title {
+    color: var(--color-dark);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+.v-card-text {
+    font-size: 0.95rem;
+    color: var(--color-dark-gray);
+}
+
+/* --- Sezione Immagine + Testo --- */
+.v-section-image-text {
+    padding: 6rem 2rem; /* Più spazio verticale */
+}
+.v-image-text-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Alterna ordine su desktop */
+@media (min-width: 769px) {
+    .v-container-alternate {
+        grid-template-areas: "image text"; /* Immagine a sinistra */
+    }
+     .v-container-alternate .v-image-container { grid-area: image; }
+     .v-container-alternate .v-text-container { grid-area: text; }
+
+     /* Sezione 5 (Trainer) - Immagine a destra */
+     #trainer .v-image-text-container {
+        grid-template-areas: "text image";
+     }
+     #trainer .v-image-container { grid-area: image; }
+     #trainer .v-text-container { grid-area: text; }
+}
+
+.v-text-title-large {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.v-text-paragraph {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+.v-image-container .image-placeholder {
+    border-radius: 8px;
+    overflow: hidden;
+}
+img.meme{
+    border: 25px black ridge;
+}
+
+/* Checklist */
+.v-checklist {
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+.v-checklist li {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 30px; /* Spazio per l'icona */
+}
+.v-checklist li::before { /* Simula icona check */
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 0; /* Allinea meglio */
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.2em; /* Rende il check più visibile */
+}
+.v-section-dark .v-checklist li::before {
+    color: var(--color-primary); /* Mantiene colore accento */
+}
+
+
+/* --- Sezione Mosaico Immagini --- */
+.v-section-mosaic {
+    padding: 4rem 1rem; /* Meno padding laterale per griglia edge-to-edge */
+}
+.v-section-title-center { text-align: center; margin-bottom: 3rem; }
+
+.v-mosaic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+.v-mosaic-item {
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 250px; /* Altezza base */
+    position: relative;
+}
+.v-mosaic-item .image-placeholder {
+    min-height: 100%;
+    border: none; /* Rimuovi bordo placeholder qui */
+    object-fit: cover; /* Fa sì che l'immagine copra */
+}
+.v-mosaic-item.large {
+    min-height: 510px; /* Altezza doppia + gap */
+}
+@media (min-width: 769px) { /* Applica solo su schermi più grandi */
+    .v-mosaic-item.large {
+        grid-column: span 2; /* Occupa due colonne */
+        grid-row: span 2; /* Occupa due righe */
+    }
+}
+.v-mosaic-item.text-card {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.v-mosaic-item.text-card h3 { color: var(--color-dark); margin-bottom: 1rem;}
+.v-mosaic-item.text-card p { margin-bottom: 1.5rem; font-size: 0.95rem;}
+.v-mosaic-item.text-card .v-button-primary {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+}
+.v-mosaic-item.text-card .v-button-primary:hover {
+    background-color: var(--color-dark-gray);
+}
+
+/* --- Sezione 3 Card con Immagine --- */
+.v-section-cards-image { padding: 4rem 2rem; }
+.v-card-grid-image {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.v-card-image {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+}
+.v-card-image-header .image-placeholder {
+    border-radius: 0;
+    border: none;
+}
+.v-card-image-body {
+    padding: 1.5rem;
+    flex-grow: 1; /* Fa espandere il corpo */
+    display: flex;
+    flex-direction: column;
+}
+.v-card-image-body .v-card-title {
+    margin-top: 0;
+}
+.v-card-image-body p {
+    flex-grow: 1; /* Spinge il link in basso */
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+.v-card-link {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: auto; /* Spinge in fondo */
+    align-self: flex-start; /* Allinea a sinistra */
+}
+.v-card-link:hover { text-decoration: underline; }
+
+/* --- Sezione Testo Lungo --- */
+.v-section-long-text { padding: 4rem 2rem; }
+.v-long-text-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* Centra titolo e bottone */
+}
+.v-long-text-container p {
+    text-align: left; /* Giustifica o allinea a sx il testo */
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+.v-long-text-container .image-placeholder {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+.v-long-text-container .v-button { margin-top: 1rem; }
+
+
+/* --- Sezione Contatti --- */
+.v-section-contact { padding: 5rem 2rem; }
+.v-contact-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start; /* Allinea in alto */
+}
+.v-contact-form-container {
+    background-color: var(--color-white);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+.v-form-group { margin-bottom: 1.5rem; }
+.v-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.v-form-group input[type="text"],
+.v-form-group input[type="email"],
+.v-form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #fff; /* Assicura sfondo bianco */
+    color: #333; /* Colore testo input */
+}
+.v-form-group textarea { resize: vertical; }
+.v-form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+.v-form-group.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+.v-form-group.checkbox-group input[type="checkbox"] {
+    width: auto;
+    flex-shrink: 0; /* Evita che si restringa */
+}
+.v-form-group.checkbox-group a {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.v-contact-info-container 
+    /* Stile contenitore info */
+
+.v-contact-image .image-placeholder {
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    border: 2px solid black;
+    height: 250px;
+   
+}
+.v-contact-details {
+    background-color: var(--color-primary); /* Sfondo giallo per i dettagli */
+    color: var(--color-dark);
+    padding: 2rem;
+    border-radius: 8px;
+}
+.v-contact-item {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start; /* Allinea icona e testo */
+    gap: 1rem;
+}
+.v-contact-item:last-child { margin-bottom: 0; }
+.v-contact-item h4 {
+    margin-bottom: 0.3rem;
+    font-size: 1.1rem;
+    display: flex; /* Per allineare icona nel titolo */
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0; /* Non far restringere il titolo */
+    color: var(--color-dark); /* Assicura colore scuro */
+}
+.v-contact-item h4 .icon-placeholder { /* Icona piccola nel titolo */
+     width: 20px; height: 20px; min-height: 20px; margin: 0; border-radius: 0; background: var(--color-dark); /* Icona scura su sfondo giallo */
+}
+.v-contact-item p { margin-bottom: 0.2rem; font-size: 0.95rem; color: var(--color-dark-gray); }
+
+
+/* --- Footer --- */
+.v-footer {
+    background-color: var(--color-dark);
+    color: #aaa;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+}
+.v-footer-social { margin-top: 1rem; }
+.v-footer-social a {
+    color: #aaa;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 1.3rem; /* Dimensione icone */
+    display: inline-block; /* Per permettere stile placeholder */
+}
+.v-footer-social a:hover { color: var(--color-primary); }
+.v-footer-social .icon-placeholder { /* Stile per placeholder icone social */
+    width: 24px; height: 24px; min-height: 24px; background: #555; border-radius: 4px; display: inline-block; vertical-align: middle; border: none;
+}
+
+/* --- Responsività --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    .v-hero-title { font-size: 2.8rem; }
+    .v-hero-subtitle { font-size: 1.1rem; }
+
+    .v-header { padding: 0 1rem; } /* Meno padding su mobile */
+    .v-header-nav {
+        display: none; /* Nascondi menu desktop */
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee; /* Separatore */
+    }
+    .v-header-nav.active {
+        display: flex; /* Mostra quando attivo */
+    }
+    .v-header-nav a {
+        padding: 0.8rem 1rem; /* Adatta padding link mobile */
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #eee; /* Separatore tra link */
+    }
+     .v-header-nav a:last-child { border-bottom: none; }
+
+    .v-mobile-menu-toggle {
+        display: block; /* Mostra bottone hamburger */
+    }
+
+    .v-section { padding: 3rem 1rem; } /* Riduci padding sezioni */
+
+    .v-image-text-container,
+    .v-image-text-container.v-container-alternate,
+    #trainer .v-image-text-container {
+        grid-template-columns: 1fr; /* Colonne impilate */
+        grid-template-areas: unset !important; /* Rimuovi aree */
+        gap: 2rem;
+    }
+     /* Assicura ordine corretto su mobile */
+     .v-container-alternate .v-image-container { grid-row: 1; } /* Immagine sopra */
+     .v-container-alternate .v-text-container { grid-row: 2; }
+
+     #trainer .v-text-container { grid-row: 1; } /* Testo sopra */
+     #trainer .v-image-container { grid-row: 2; }
+
+    .v-mosaic-item.large {
+        grid-column: span 1; /* Occupa una colonna */
+        grid-row: span 1; /* Occupa una riga */
+        min-height: 250px; /* Altezza base */
+    }
+
+    .v-contact-container {
+         grid-template-columns: 1fr; /* Impila form e info */
+    }
+    .v-contact-info-container { order: -1; margin-bottom: 2rem;} /* Mette info sopra su mobile */
+    .v-contact-form-container { padding: 1.5rem; } /* Meno padding form */
+
+}
+/* Stili per la Nuova Sezione Video Personalizzata */
+.v-section-video-custom {
+    padding: 80px 20px;
+    /* background: linear-gradient(135deg, #000000 0%, #1a1a1a 45%, #FFD700 55%, #ffcc00 100%); */ /* COMMENTATO */
+    background: #333; /* SFONDO SEMPLICE PER TEST */
+    color: #ffffff;
+}
+
+.v-video-custom-container {
+    max-width: 1200px; /* Contenitore più largo per video più grandi */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.v-video-custom-title {
+    font-size: 2.5rem; /* Titolo più grande */
+    font-weight: 700; /* Più enfasi */
+    margin-bottom: 50px; /* Più spazio sotto il titolo */
+    color: #FFD700; /* Titolo in giallo per risaltare */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Ombra per leggibilità */
+}
+
+.v-video-grid-custom {
+    display: flex; /* Usa Flexbox per affiancare i video */
+    flex-wrap: wrap; /* Permette ai video di andare a capo su schermi piccoli */
+    justify-content: space-around; /* Centra i video se c'è spazio extra */
+    gap: 40px; /* Spazio consistente tra i video */
+    align-items: center;
+}
+
+.v-video-wrapper-custom {
+    flex: 1 1 380px;
+    max-width: 280px; /* O la larghezza massima desiderata */
+    background-color: #111;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px #FFD70033;
+    overflow: hidden;
+    position: relative; /* Aggiunto per il contesto di posizionamento dell'aspect-ratio-box */
+    /* Rimuovi un'altezza fissa se presente qui, lascia che sia determinato dall'aspect ratio */
+    margin: 70px;
+    border: solid 3px white;
+}
+
+.v-player-custom {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Mantieni l'aspect ratio desiderato per il box del player */
+    object-fit: cover;  /* <<< CAMBIA QUESTO VALORE */
+    background-color: #000000; /* Importante: sfondo per le "barre nere" */
+    /* ... altri tuoi stili come border-radius ... */
+    /* border-radius: 10px 10px 0 0; */ /* Potrebbe essere necessario rimuovere o adattare se le barre nere non devono avere il radius */
+    height: 470px;
+    width: 544;
+    object-fit: contain;
+}
+
+
+
+
+/* Responsive: quando i video non ci stanno più affiancati, si impilano */
+@media (max-width: 880px) { /* Breakpoint leggermente più alto per il wrap */
+    .v-video-grid-custom {
+        flex-direction: column; /* Impila i video verticalmente */
+        align-items: center; /* Centra i video impilati */
+    }
+    .v-video-wrapper-custom {
+        flex-basis: auto; /* Rimuove la base flessibile quando impilati */
+        width: 90%; /* Occupa quasi tutta la larghezza disponibile quando impilati */
+        max-width: 500px; /* Ma non superare i 500px per non diventare troppo grande su mobile */
+    }
+    .v-video-custom-title {
+        font-size: 2rem; /* Riduci un po' il titolo su schermi piccoli */
+    }
+}
+
+@media (max-width: 480px) {
+    .v-video-custom-title {
+        font-size: 1.6rem; /* Ulteriore riduzione titolo per mobile */
+        margin-bottom: 30px;
+    }
+    .v-section-video-custom {
+        padding: 50px 15px;
+    }
+     .v-video-wrapper-custom {
+        width: 100%; /* Piena larghezza su schermi molto piccoli */
+    }
+}
+/* NUOVI STILI PER IL TESTO MOTIVAZIONALE CENTRALE */
+.v-motivational-text-between {
+    flex: 0 1 250px; /* Non cresce, può restringersi, base di 250px. Adatta questo valore! */
+    padding: 20px 10px;
+    text-align: center;
+    align-self: center; /* Assicura che sia centrato verticalmente con i video */
+}
+
+.v-motivational-text-between .v-motivational-main {
+    color: #FFD700;
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.v-motivational-text-between .v-motivational-sub {
+    color: #e0e0e0;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+@media (max-width: 1024px) {
+    .v-video-wrapper-custom {
+        flex-basis: 300px; /* Riduci ulteriormente la base dei video */
+    }
+    .v-motivational-text-between {
+        flex-basis: 200px; /* Riduci la base del testo */
+    }
+    .v-motivational-text-between .v-motivational-main {
+        font-size: 1.8rem;
+    }
+}
+
